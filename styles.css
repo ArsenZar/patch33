@@ -57,6 +57,26 @@ button {
   );
 }
 
+.background-map {
+  position: absolute;
+  z-index: -3;
+  inset: -3%;
+  pointer-events: none;
+  background: url("./assets/tactical-map.jpg") center / cover no-repeat;
+  filter: saturate(0.72) contrast(1.08) brightness(0.72);
+  opacity: 0.09;
+  transform: scale(1.04);
+}
+
+.background-map::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(rgb(1 5 3 / 35%), rgb(1 5 3 / 68%)),
+    radial-gradient(circle at center, transparent 20%, rgb(0 0 0 / 58%) 100%);
+}
+
 .ambient {
   position: absolute;
   z-index: -2;
@@ -216,6 +236,11 @@ button {
 
   .ambient {
     width: 130vw;
+  }
+
+  .background-map {
+    background-position: 48% center;
+    opacity: 0.075;
   }
 
   .motion-toggle {
