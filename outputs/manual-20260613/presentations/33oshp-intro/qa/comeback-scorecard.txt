@@ -1,0 +1,5 @@
+story: 4/5 - immediate unit identity and restrained reveal
+specificity: 5/5 - user-provided insignia, exact Ukrainian copy and requested colors
+rhythm: 4/5 - single-slide atmospheric motion
+visual hierarchy: 4/5 - title, subtitle, insignia
+craft: 4/5 - PPTX retains the animated GIF as ppt/media/image.gif; final frame verified separately

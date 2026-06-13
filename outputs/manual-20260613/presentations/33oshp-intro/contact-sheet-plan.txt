@@ -1,0 +1,7 @@
+One-slide vertical hero:
+- deep green-black field
+- upper green atmospheric light
+- lower warm cream atmospheric light
+- centered user-provided insignia with restrained depth/shadow
+- 33ОШП reveals first
+- (Механізований бат) reveals second

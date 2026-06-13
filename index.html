@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#020503" />
+    <meta
+      name="description"
+      content="Адаптивна 3D-презентація шеврона механізованого батальйону."
+    />
+    <title>Механізований батальйон</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="scene" aria-label="3D-презентація шеврона">
+      <div class="ambient ambient--green" aria-hidden="true"></div>
+      <div class="ambient ambient--cream" aria-hidden="true"></div>
+
+      <div class="stage">
+        <div class="patch-shadow" aria-hidden="true"></div>
+
+        <div class="patch-rotator" data-patch>
+          <div class="patch-face patch-face--front">
+            <img
+              src="./assets/patchPNG.png"
+              alt="Шеврон механізованого батальйону"
+              draggable="false"
+            />
+          </div>
+
+          <div class="patch-face patch-face--back" aria-hidden="true">
+            <img src="./assets/patchPNG.png" alt="" draggable="false" />
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="motion-toggle"
+        type="button"
+        aria-pressed="false"
+        data-motion-toggle
+      >
+        <span class="motion-toggle__icon" aria-hidden="true"></span>
+        <span data-motion-label>Зупинити обертання</span>
+      </button>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

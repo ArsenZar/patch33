@@ -1,0 +1,28 @@
+{
+  "output": "/Users/senya_zar/Documents/Codex/2026-06-13/files-mentioned-by-the-user-patchpng/outputs/manual-20260613/presentations/33oshp-intro/output/33oshp-soft-reveal.pptx",
+  "outputBytes": 864545,
+  "slideCount": 1,
+  "slideSize": {
+    "width": 720,
+    "height": 1280
+  },
+  "previewDir": "/Users/senya_zar/Documents/Codex/2026-06-13/files-mentioned-by-the-user-patchpng/outputs/manual-20260613/presentations/33oshp-intro/preview",
+  "previewPaths": [
+    "/Users/senya_zar/Documents/Codex/2026-06-13/files-mentioned-by-the-user-patchpng/outputs/manual-20260613/presentations/33oshp-intro/preview/slide-01.png"
+  ],
+  "layoutDir": "/Users/senya_zar/Documents/Codex/2026-06-13/files-mentioned-by-the-user-patchpng/outputs/manual-20260613/presentations/33oshp-intro/layout/final",
+  "layoutResults": [
+    {
+      "layoutPath": "/Users/senya_zar/Documents/Codex/2026-06-13/files-mentioned-by-the-user-patchpng/outputs/manual-20260613/presentations/33oshp-intro/layout/final/slide-01.layout.json"
+    }
+  ],
+  "contactSheet": "/Users/senya_zar/Documents/Codex/2026-06-13/files-mentioned-by-the-user-patchpng/outputs/manual-20260613/presentations/33oshp-intro/preview/contact-sheet.png",
+  "slides": [
+    {
+      "index": 1,
+      "requestedSlideNumber": 1,
+      "modulePath": "/Users/senya_zar/Documents/Codex/2026-06-13/files-mentioned-by-the-user-patchpng/outputs/manual-20260613/presentations/33oshp-intro/slides/slide-01.mjs",
+      "exportName": "slide01"
+    }
+  ]
+}

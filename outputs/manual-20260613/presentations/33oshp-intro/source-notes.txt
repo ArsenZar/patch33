@@ -1,0 +1,12 @@
+User-provided identity assets:
+- /Users/senya_zar/Desktop/patchPNG.png: primary insignia artwork and frame.
+- /Users/senya_zar/Desktop/Final.png: visual reference for background glow and spacing.
+- /Users/senya_zar/Desktop/Знімок екрана 2026-06-13 о 16.23.27.png: reference for two oversized light circles.
+
+Requested copy:
+- 33ОШП
+- (Механізований бат)
+
+Requested light colors:
+- #F6F2A7 at 40% opacity
+- #7FD88D at 15% opacity

@@ -1,0 +1,239 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #020503;
+  --cream: 246 242 167;
+  --green: 127 216 141;
+  --rotation-duration: 13s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 45%, #09110c 0, #030705 42%, #010201 78%),
+    #020503;
+}
+
+button {
+  font: inherit;
+}
+
+.scene {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  width: 100%;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+  perspective: 1700px;
+}
+
+.scene::after {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: radial-gradient(
+    circle at center,
+    transparent 38%,
+    rgb(0 0 0 / 32%) 75%,
+    rgb(0 0 0 / 62%) 100%
+  );
+}
+
+.ambient {
+  position: absolute;
+  z-index: -2;
+  width: min(92vw, 980px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(clamp(55px, 8vw, 120px));
+  transform: translateZ(0);
+}
+
+.ambient--green {
+  top: min(-48vw, -270px);
+  background: rgb(var(--green) / 15%);
+}
+
+.ambient--cream {
+  bottom: min(-55vw, -380px);
+  background: rgb(var(--cream) / 40%);
+  opacity: 0.78;
+}
+
+.stage {
+  position: relative;
+  width: min(82vw, calc(76svh * 0.4885), 500px);
+  aspect-ratio: 889 / 1820;
+  transform-style: preserve-3d;
+}
+
+.patch-rotator {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: patch-turn var(--rotation-duration) cubic-bezier(0.42, 0, 0.58, 1)
+    infinite;
+  will-change: transform;
+}
+
+.patch-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 0.2%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.patch-face--front {
+  transform: translateZ(1px);
+}
+
+.patch-face--back {
+  transform: rotateY(180deg) translateZ(1px);
+}
+
+.patch-face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  object-fit: contain;
+}
+
+.patch-shadow {
+  position: absolute;
+  z-index: -1;
+  inset: 4% 8% 2%;
+  border-radius: 42%;
+  background: #000;
+  filter: blur(clamp(22px, 5vw, 54px));
+  opacity: 0.72;
+  transform: translate3d(0, 3%, -70px) scale(0.88);
+}
+
+.motion-toggle {
+  position: absolute;
+  z-index: 10;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 0 15px;
+  color: rgb(var(--cream) / 82%);
+  border: 1px solid rgb(var(--cream) / 20%);
+  border-radius: 999px;
+  background: rgb(3 8 5 / 62%);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.motion-toggle:hover,
+.motion-toggle:focus-visible {
+  color: rgb(var(--cream));
+  border-color: rgb(var(--cream) / 45%);
+  background: rgb(8 17 11 / 84%);
+  outline: none;
+}
+
+.motion-toggle__icon {
+  width: 10px;
+  height: 13px;
+  border-right: 3px solid currentColor;
+  border-left: 3px solid currentColor;
+}
+
+.scene.is-paused .patch-rotator {
+  animation-play-state: paused;
+}
+
+.scene.is-paused .motion-toggle__icon {
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  border: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid currentColor;
+}
+
+@keyframes patch-turn {
+  0%,
+  8% {
+    transform: rotateX(-1.5deg) rotateY(0deg) scale(0.985);
+  }
+
+  42% {
+    transform: rotateX(1deg) rotateY(180deg) scale(1);
+  }
+
+  50%,
+  58% {
+    transform: rotateX(1deg) rotateY(180deg) scale(0.985);
+  }
+
+  92%,
+  100% {
+    transform: rotateX(-1.5deg) rotateY(360deg) scale(0.985);
+  }
+}
+
+@media (max-width: 600px) {
+  .scene {
+    perspective: 1150px;
+  }
+
+  .stage {
+    width: min(88vw, calc(76svh * 0.4885));
+  }
+
+  .ambient {
+    width: 130vw;
+  }
+
+  .motion-toggle {
+    right: 50%;
+    bottom: max(14px, env(safe-area-inset-bottom));
+    min-height: 38px;
+    padding-inline: 13px;
+    font-size: 12px;
+    transform: translateX(50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .patch-rotator {
+    animation: none;
+  }
+
+  .motion-toggle {
+    display: none;
+  }
+}
