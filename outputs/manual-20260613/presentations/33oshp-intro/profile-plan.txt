@@ -1,8 +1,0 @@
-task mode: create
-primary deck-profile: consumer-retail
-secondary profile gates: identity asset must remain user-provided and unaltered in meaning
-required proof objects: one vertical hero slide, animated reveal, two specified light sources
-source/asset requirements: use patchPNG.png / Final.png supplied by the user
-brand authenticity constraints: do not redraw or reinterpret the insignia
-profile-specific QA gates: readable Ukrainian text, clean 9:16 composition, smooth loop, no clipping
-known missing inputs: exact official expansion of 33ОШП is not provided, so retain the user's wording
