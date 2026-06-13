@@ -85,18 +85,22 @@ button {
   border-radius: 50%;
   pointer-events: none;
   filter: blur(clamp(55px, 8vw, 120px));
+  transform-origin: center;
   transform: translateZ(0);
+  will-change: opacity, filter, transform;
 }
 
 .ambient--green {
   top: min(-48vw, -270px);
   background: rgb(var(--green) / 15%);
+  animation: ambient-green-flicker 5.8s ease-in-out infinite alternate;
 }
 
 .ambient--cream {
   bottom: min(-55vw, -380px);
   background: rgb(var(--cream) / 40%);
   opacity: 0.78;
+  animation: ambient-cream-flicker 7.4s ease-in-out -2.1s infinite alternate;
 }
 
 .stage {
@@ -239,6 +243,68 @@ button {
   }
 }
 
+@keyframes ambient-green-flicker {
+  0% {
+    opacity: 0.58;
+    filter: blur(clamp(62px, 8.5vw, 126px));
+    transform: translate3d(-1.5%, -1%, 0) scale(0.94);
+  }
+
+  18% {
+    opacity: 0.86;
+  }
+
+  43% {
+    opacity: 0.68;
+    transform: translate3d(1%, 0, 0) scale(1.02);
+  }
+
+  67% {
+    opacity: 1;
+    filter: blur(clamp(50px, 7.5vw, 112px));
+  }
+
+  82% {
+    opacity: 0.76;
+  }
+
+  100% {
+    opacity: 0.92;
+    transform: translate3d(-0.5%, 1%, 0) scale(1.06);
+  }
+}
+
+@keyframes ambient-cream-flicker {
+  0% {
+    opacity: 0.5;
+    filter: blur(clamp(70px, 9vw, 132px));
+    transform: translate3d(1%, 2%, 0) scale(0.92);
+  }
+
+  24% {
+    opacity: 0.72;
+  }
+
+  46% {
+    opacity: 0.58;
+    transform: translate3d(-1%, 0, 0) scale(1);
+  }
+
+  71% {
+    opacity: 0.88;
+    filter: blur(clamp(54px, 7.8vw, 116px));
+  }
+
+  84% {
+    opacity: 0.66;
+  }
+
+  100% {
+    opacity: 0.8;
+    transform: translate3d(0, -1%, 0) scale(1.08);
+  }
+}
+
 @media (max-width: 600px) {
   .scene {
     perspective: 1150px;
@@ -273,6 +339,10 @@ button {
   }
 
   .patch-face img {
+    animation: none;
+  }
+
+  .ambient {
     animation: none;
   }
 
