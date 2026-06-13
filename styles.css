@@ -109,9 +109,11 @@ button {
 .patch-rotator {
   position: absolute;
   inset: 0;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   animation: patch-turn var(--rotation-duration) cubic-bezier(0.42, 0, 0.58, 1)
     infinite;
+  -webkit-transform: translateZ(0);
   will-change: transform;
 }
 
@@ -120,17 +122,10 @@ button {
   inset: 0;
   overflow: hidden;
   border-radius: 0.2%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transform-style: preserve-3d;
-}
-
-.patch-face--front {
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
   transform: translateZ(1px);
-}
-
-.patch-face--back {
-  transform: rotateY(180deg) translateZ(1px);
+  -webkit-transform: translateZ(1px);
 }
 
 .patch-face img {
@@ -140,6 +135,11 @@ button {
   pointer-events: none;
   user-select: none;
   object-fit: contain;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  animation: patch-image-orientation var(--rotation-duration) steps(1, end)
+    infinite;
+  will-change: transform;
 }
 
 .patch-shadow {
@@ -225,6 +225,20 @@ button {
   }
 }
 
+@keyframes patch-image-orientation {
+  0%,
+  24%,
+  76%,
+  100% {
+    transform: translateZ(0) scaleX(1);
+  }
+
+  25%,
+  75% {
+    transform: translateZ(0) scaleX(-1);
+  }
+}
+
 @media (max-width: 600px) {
   .scene {
     perspective: 1150px;
@@ -255,6 +269,10 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .patch-rotator {
+    animation: none;
+  }
+
+  .patch-face img {
     animation: none;
   }
 
