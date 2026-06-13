@@ -63,8 +63,8 @@ button {
   inset: -3%;
   pointer-events: none;
   background: url("./assets/tactical-map.jpg") center / cover no-repeat;
-  filter: saturate(0.72) contrast(1.08) brightness(0.72);
-  opacity: 0.09;
+  filter: saturate(0.82) contrast(1.12) brightness(0.88);
+  opacity: 0.2;
   transform: scale(1.04);
 }
 
@@ -73,8 +73,8 @@ button {
   inset: 0;
   content: "";
   background:
-    linear-gradient(rgb(1 5 3 / 35%), rgb(1 5 3 / 68%)),
-    radial-gradient(circle at center, transparent 20%, rgb(0 0 0 / 58%) 100%);
+    linear-gradient(rgb(1 5 3 / 20%), rgb(1 5 3 / 48%)),
+    radial-gradient(circle at center, transparent 25%, rgb(0 0 0 / 42%) 100%);
 }
 
 .ambient {
@@ -240,7 +240,7 @@ button {
 
   .background-map {
     background-position: 48% center;
-    opacity: 0.075;
+    opacity: 0.17;
   }
 
   .motion-toggle {
